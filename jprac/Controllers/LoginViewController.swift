@@ -2,14 +2,15 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var appTitleLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var enterButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
-        styleButton()
+        enterButton.backgroundColor = .systemPurple
+        enterButton.setTitleColor(.white, for: .normal)
+        enterButton.layer.cornerRadius = 12
         nameTextField.delegate = self
     }
 
@@ -21,13 +22,6 @@ class LoginViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.isHidden = false
-    }
-
-    private func styleButton() {
-        enterButton.backgroundColor = UIColor.systemPurple
-        enterButton.setTitleColor(.white, for: .normal)
-        enterButton.layer.cornerRadius = 12
-        enterButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
     }
 
     @IBAction func enterTapped(_ sender: UIButton) {
