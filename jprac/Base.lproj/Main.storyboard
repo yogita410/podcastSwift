@@ -1,24 +1,377 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nav-ctrl-id">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+
+        <!-- Navigation Controller (initial) -->
+        <scene sceneID="nav-scene-id">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nav-ctrl-id" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nav-bar-id">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="login-vc-id" kind="relationship" relationship="rootViewController" id="nav-to-login-id"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nav-fr-id" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-300" y="200"/>
         </scene>
+
+        <!-- Screen 1: Login -->
+        <scene sceneID="login-scene-id">
+            <objects>
+                <viewController id="login-vc-id" customClass="LoginViewController" customModule="jprac" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="login-view-id">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+
+                            <!-- App Title Label -->
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🎙 PodCast" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="1" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="login-title-lbl">
+                                <rect key="frame" x="40" y="180" width="313" height="44"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <color key="textColor" systemColor="systemPurpleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+
+                            <!-- Subtitle -->
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover your next favorite podcast" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="login-subtitle-lbl">
+                                <rect key="frame" x="40" y="236" width="313" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+
+                            <!-- Name TextField -->
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your name" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="login-tf-id">
+                                <rect key="frame" x="40" y="360" width="313" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                            </textField>
+
+                            <!-- Enter Button -->
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="login-btn-id">
+                                <rect key="frame" x="40" y="430" width="313" height="52"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Enter"/>
+                                <connections>
+                                    <action selector="enterTapped:" destination="login-vc-id" eventType="touchUpInside" id="login-btn-action"/>
+                                </connections>
+                            </button>
+
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="login-safe-id"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="login-title-lbl" firstAttribute="top" secondItem="login-safe-id" secondAttribute="top" constant="120" id="c-login-title-top"/>
+                            <constraint firstItem="login-title-lbl" firstAttribute="leading" secondItem="login-view-id" secondAttribute="leading" constant="40" id="c-login-title-lead"/>
+                            <constraint firstItem="login-view-id" firstAttribute="trailing" secondItem="login-title-lbl" secondAttribute="trailing" constant="40" id="c-login-title-trail"/>
+
+                            <constraint firstItem="login-subtitle-lbl" firstAttribute="top" secondItem="login-title-lbl" secondAttribute="bottom" constant="12" id="c-login-sub-top"/>
+                            <constraint firstItem="login-subtitle-lbl" firstAttribute="leading" secondItem="login-view-id" secondAttribute="leading" constant="40" id="c-login-sub-lead"/>
+                            <constraint firstItem="login-view-id" firstAttribute="trailing" secondItem="login-subtitle-lbl" secondAttribute="trailing" constant="40" id="c-login-sub-trail"/>
+
+                            <constraint firstItem="login-tf-id" firstAttribute="top" secondItem="login-subtitle-lbl" secondAttribute="bottom" constant="60" id="c-login-tf-top"/>
+                            <constraint firstItem="login-tf-id" firstAttribute="leading" secondItem="login-view-id" secondAttribute="leading" constant="40" id="c-login-tf-lead"/>
+                            <constraint firstItem="login-view-id" firstAttribute="trailing" secondItem="login-tf-id" secondAttribute="trailing" constant="40" id="c-login-tf-trail"/>
+                            <constraint firstItem="login-tf-id" firstAttribute="height" constant="50" id="c-login-tf-h"/>
+
+                            <constraint firstItem="login-btn-id" firstAttribute="top" secondItem="login-tf-id" secondAttribute="bottom" constant="20" id="c-login-btn-top"/>
+                            <constraint firstItem="login-btn-id" firstAttribute="leading" secondItem="login-view-id" secondAttribute="leading" constant="40" id="c-login-btn-lead"/>
+                            <constraint firstItem="login-view-id" firstAttribute="trailing" secondItem="login-btn-id" secondAttribute="trailing" constant="40" id="c-login-btn-trail"/>
+                            <constraint firstItem="login-btn-id" firstAttribute="height" constant="52" id="c-login-btn-h"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="login-navitem-id"/>
+                    <connections>
+                        <outlet property="appTitleLabel" destination="login-title-lbl" id="outlet-login-title"/>
+                        <outlet property="nameTextField" destination="login-tf-id" id="outlet-login-tf"/>
+                        <outlet property="enterButton" destination="login-btn-id" id="outlet-login-btn"/>
+                        <segue destination="genre-vc-id" kind="show" identifier="LoginToGenre" id="segue-login-genre"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="login-fr-id" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="200" y="200"/>
+        </scene>
+
+        <!-- Screen 2: Genre Selection -->
+        <scene sceneID="genre-scene-id">
+            <objects>
+                <viewController id="genre-vc-id" customClass="GenreSelectionViewController" customModule="jprac" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="genre-view-id">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey, User 👋" lineBreakMode="tailTruncation" numberOfLines="1" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="genre-greeting-lbl">
+                                <rect key="frame" x="20" y="100" width="353" height="40"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" systemColor="systemPurpleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which type of podcast&#10;do you want to listen to?" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="genre-question-lbl">
+                                <rect key="frame" x="20" y="152" width="353" height="56"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="genre-cv-container-id">
+                                <rect key="frame" x="0.0" y="228" width="393" height="600"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="genre-safe-id"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="genre-greeting-lbl" firstAttribute="top" secondItem="genre-safe-id" secondAttribute="top" constant="16" id="c-genre-greet-top"/>
+                            <constraint firstItem="genre-greeting-lbl" firstAttribute="leading" secondItem="genre-view-id" secondAttribute="leading" constant="20" id="c-genre-greet-lead"/>
+                            <constraint firstItem="genre-view-id" firstAttribute="trailing" secondItem="genre-greeting-lbl" secondAttribute="trailing" constant="20" id="c-genre-greet-trail"/>
+
+                            <constraint firstItem="genre-question-lbl" firstAttribute="top" secondItem="genre-greeting-lbl" secondAttribute="bottom" constant="8" id="c-genre-q-top"/>
+                            <constraint firstItem="genre-question-lbl" firstAttribute="leading" secondItem="genre-view-id" secondAttribute="leading" constant="20" id="c-genre-q-lead"/>
+                            <constraint firstItem="genre-view-id" firstAttribute="trailing" secondItem="genre-question-lbl" secondAttribute="trailing" constant="20" id="c-genre-q-trail"/>
+
+                            <constraint firstItem="genre-cv-container-id" firstAttribute="top" secondItem="genre-question-lbl" secondAttribute="bottom" constant="16" id="c-genre-cv-top"/>
+                            <constraint firstItem="genre-cv-container-id" firstAttribute="leading" secondItem="genre-view-id" secondAttribute="leading" id="c-genre-cv-lead"/>
+                            <constraint firstItem="genre-view-id" firstAttribute="trailing" secondItem="genre-cv-container-id" secondAttribute="trailing" id="c-genre-cv-trail"/>
+                            <constraint firstItem="genre-safe-id" firstAttribute="bottom" secondItem="genre-cv-container-id" secondAttribute="bottom" id="c-genre-cv-bot"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Genres" id="genre-navitem-id"/>
+                    <connections>
+                        <outlet property="greetingLabel" destination="genre-greeting-lbl" id="outlet-genre-greeting"/>
+                        <outlet property="questionLabel" destination="genre-question-lbl" id="outlet-genre-question"/>
+                        <outlet property="collectionViewContainer" destination="genre-cv-container-id" id="outlet-genre-cv"/>
+                        <segue destination="podcast-list-vc-id" kind="show" identifier="GenreToPodcastList" id="segue-genre-list"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="genre-fr-id" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="200"/>
+        </scene>
+
+        <!-- Screen 3: Podcast List -->
+        <scene sceneID="list-scene-id">
+            <objects>
+                <viewController id="podcast-list-vc-id" customClass="PodcastListViewController" customModule="jprac" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="list-view-id">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+
+                            <!-- Header Label -->
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Genre" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="list-header-lbl">
+                                <rect key="frame" x="16" y="100" width="361" height="64"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" systemColor="systemPurpleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+
+                            <!-- Table View -->
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="list-tv-id">
+                                <rect key="frame" x="0.0" y="180" width="393" height="648"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="podcast-list-vc-id" id="list-tv-ds"/>
+                                    <outlet property="delegate" destination="podcast-list-vc-id" id="list-tv-del"/>
+                                </connections>
+                            </tableView>
+
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="list-safe-id"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="list-header-lbl" firstAttribute="top" secondItem="list-safe-id" secondAttribute="top" constant="16" id="c-list-hdr-top"/>
+                            <constraint firstItem="list-header-lbl" firstAttribute="leading" secondItem="list-view-id" secondAttribute="leading" constant="16" id="c-list-hdr-lead"/>
+                            <constraint firstItem="list-view-id" firstAttribute="trailing" secondItem="list-header-lbl" secondAttribute="trailing" constant="16" id="c-list-hdr-trail"/>
+
+                            <constraint firstItem="list-tv-id" firstAttribute="top" secondItem="list-header-lbl" secondAttribute="bottom" constant="12" id="c-list-tv-top"/>
+                            <constraint firstItem="list-tv-id" firstAttribute="leading" secondItem="list-view-id" secondAttribute="leading" id="c-list-tv-lead"/>
+                            <constraint firstItem="list-view-id" firstAttribute="trailing" secondItem="list-tv-id" secondAttribute="trailing" id="c-list-tv-trail"/>
+                            <constraint firstItem="list-safe-id" firstAttribute="bottom" secondItem="list-tv-id" secondAttribute="bottom" id="c-list-tv-bot"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Podcasts" id="list-navitem-id"/>
+                    <connections>
+                        <outlet property="headerLabel" destination="list-header-lbl" id="outlet-list-header"/>
+                        <outlet property="tableView" destination="list-tv-id" id="outlet-list-tv"/>
+                        <segue destination="detail-vc-id" kind="show" identifier="PodcastListToDetail" id="segue-list-detail"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="list-fr-id" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1300" y="200"/>
+        </scene>
+
+        <!-- Screen 4: Podcast Detail -->
+        <scene sceneID="detail-scene-id">
+            <objects>
+                <viewController id="detail-vc-id" customClass="PodcastDetailViewController" customModule="jprac" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="detail-view-id">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+
+                            <!-- ScrollView -->
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="detail-sv-id">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+
+                                    <!-- Content View inside scroll -->
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="detail-content-id">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="700"/>
+                                        <subviews>
+
+                                            <!-- Emoji / Image placeholder -->
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🎙" textAlignment="center" numberOfLines="1" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="detail-emoji-lbl">
+                                                <rect key="frame" x="116" y="40" width="161" height="120"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+
+                                            <!-- Podcast Title -->
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Podcast Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="detail-title-lbl">
+                                                <rect key="frame" x="20" y="180" width="353" height="80"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                                <color key="textColor" systemColor="systemPurpleColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+
+                                            <!-- Host Label -->
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🎙 Host Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="1" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="detail-host-lbl">
+                                                <rect key="frame" x="20" y="272" width="353" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+
+                                            <!-- Duration Label -->
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⏱ Duration" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="1" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="detail-dur-lbl">
+                                                <rect key="frame" x="20" y="304" width="353" height="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" systemColor="tertiaryLabelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+
+                                            <!-- Divider View -->
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="detail-divider-id">
+                                                <rect key="frame" x="20" y="340" width="353" height="1"/>
+                                                <color key="backgroundColor" systemColor="separatorColor"/>
+                                            </view>
+
+                                            <!-- Description Label -->
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full description of episode goes here. This will be a long paragraph of text explaining what the podcast episode is about." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="detail-desc-lbl">
+                                                <rect key="frame" x="20" y="357" width="353" height="200"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="detail-emoji-lbl" firstAttribute="top" secondItem="detail-content-id" secondAttribute="top" constant="40" id="c-d-emoji-top"/>
+                                            <constraint firstItem="detail-emoji-lbl" firstAttribute="centerX" secondItem="detail-content-id" secondAttribute="centerX" id="c-d-emoji-cx"/>
+                                            <constraint firstItem="detail-emoji-lbl" firstAttribute="width" constant="161" id="c-d-emoji-w"/>
+                                            <constraint firstItem="detail-emoji-lbl" firstAttribute="height" constant="120" id="c-d-emoji-h"/>
+
+                                            <constraint firstItem="detail-title-lbl" firstAttribute="top" secondItem="detail-emoji-lbl" secondAttribute="bottom" constant="20" id="c-d-title-top"/>
+                                            <constraint firstItem="detail-title-lbl" firstAttribute="leading" secondItem="detail-content-id" secondAttribute="leading" constant="20" id="c-d-title-lead"/>
+                                            <constraint firstItem="detail-content-id" firstAttribute="trailing" secondItem="detail-title-lbl" secondAttribute="trailing" constant="20" id="c-d-title-trail"/>
+
+                                            <constraint firstItem="detail-host-lbl" firstAttribute="top" secondItem="detail-title-lbl" secondAttribute="bottom" constant="12" id="c-d-host-top"/>
+                                            <constraint firstItem="detail-host-lbl" firstAttribute="leading" secondItem="detail-content-id" secondAttribute="leading" constant="20" id="c-d-host-lead"/>
+                                            <constraint firstItem="detail-content-id" firstAttribute="trailing" secondItem="detail-host-lbl" secondAttribute="trailing" constant="20" id="c-d-host-trail"/>
+
+                                            <constraint firstItem="detail-dur-lbl" firstAttribute="top" secondItem="detail-host-lbl" secondAttribute="bottom" constant="8" id="c-d-dur-top"/>
+                                            <constraint firstItem="detail-dur-lbl" firstAttribute="leading" secondItem="detail-content-id" secondAttribute="leading" constant="20" id="c-d-dur-lead"/>
+                                            <constraint firstItem="detail-content-id" firstAttribute="trailing" secondItem="detail-dur-lbl" secondAttribute="trailing" constant="20" id="c-d-dur-trail"/>
+
+                                            <constraint firstItem="detail-divider-id" firstAttribute="top" secondItem="detail-dur-lbl" secondAttribute="bottom" constant="16" id="c-d-div-top"/>
+                                            <constraint firstItem="detail-divider-id" firstAttribute="leading" secondItem="detail-content-id" secondAttribute="leading" constant="20" id="c-d-div-lead"/>
+                                            <constraint firstItem="detail-content-id" firstAttribute="trailing" secondItem="detail-divider-id" secondAttribute="trailing" constant="20" id="c-d-div-trail"/>
+                                            <constraint firstItem="detail-divider-id" firstAttribute="height" constant="1" id="c-d-div-h"/>
+
+                                            <constraint firstItem="detail-desc-lbl" firstAttribute="top" secondItem="detail-divider-id" secondAttribute="bottom" constant="16" id="c-d-desc-top"/>
+                                            <constraint firstItem="detail-desc-lbl" firstAttribute="leading" secondItem="detail-content-id" secondAttribute="leading" constant="20" id="c-d-desc-lead"/>
+                                            <constraint firstItem="detail-content-id" firstAttribute="trailing" secondItem="detail-desc-lbl" secondAttribute="trailing" constant="20" id="c-d-desc-trail"/>
+                                            <constraint firstItem="detail-content-id" firstAttribute="bottom" secondItem="detail-desc-lbl" secondAttribute="bottom" constant="40" id="c-d-desc-bot"/>
+                                        </constraints>
+                                    </view>
+
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="detail-content-id" firstAttribute="top" secondItem="detail-sv-id" secondAttribute="top" id="c-sv-content-top"/>
+                                    <constraint firstItem="detail-content-id" firstAttribute="leading" secondItem="detail-sv-id" secondAttribute="leading" id="c-sv-content-lead"/>
+                                    <constraint firstItem="detail-sv-id" firstAttribute="trailing" secondItem="detail-content-id" secondAttribute="trailing" id="c-sv-content-trail"/>
+                                    <constraint firstItem="detail-sv-id" firstAttribute="bottom" secondItem="detail-content-id" secondAttribute="bottom" id="c-sv-content-bot"/>
+                                    <constraint firstItem="detail-content-id" firstAttribute="width" secondItem="detail-sv-id" secondAttribute="width" id="c-sv-content-w"/>
+                                </constraints>
+                            </scrollView>
+
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="detail-safe-id"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="detail-sv-id" firstAttribute="top" secondItem="detail-safe-id" secondAttribute="top" id="c-det-sv-top"/>
+                            <constraint firstItem="detail-sv-id" firstAttribute="leading" secondItem="detail-view-id" secondAttribute="leading" id="c-det-sv-lead"/>
+                            <constraint firstItem="detail-view-id" firstAttribute="trailing" secondItem="detail-sv-id" secondAttribute="trailing" id="c-det-sv-trail"/>
+                            <constraint firstItem="detail-safe-id" firstAttribute="bottom" secondItem="detail-sv-id" secondAttribute="bottom" id="c-det-sv-bot"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Episode" id="detail-navitem-id"/>
+                    <connections>
+                        <outlet property="scrollView" destination="detail-sv-id" id="outlet-detail-sv"/>
+                        <outlet property="contentView" destination="detail-content-id" id="outlet-detail-cv"/>
+                        <outlet property="emojiImageView" destination="detail-emoji-lbl" id="outlet-detail-emoji"/>
+                        <outlet property="podcastTitleLabel" destination="detail-title-lbl" id="outlet-detail-title"/>
+                        <outlet property="hostLabel" destination="detail-host-lbl" id="outlet-detail-host"/>
+                        <outlet property="durationLabel" destination="detail-dur-lbl" id="outlet-detail-dur"/>
+                        <outlet property="descriptionLabel" destination="detail-desc-lbl" id="outlet-detail-desc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="detail-fr-id" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1850" y="200"/>
+        </scene>
+
     </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.6" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.3" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.9490196078431372" green="0.9490196078431372" blue="0.9686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.6862745098039216" green="0.3215686274509804" blue="0.8705882352941177" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
