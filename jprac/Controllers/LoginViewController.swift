@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
     }
 
-    @IBAction func enterTapped(_ sender: UIButton) {
+    @IBAction func enterTapped(_ sender: Any) {
         guard let name = nameTextField.text,
               !name.trimmingCharacters(in: .whitespaces).isEmpty else {
             nameTextField.layer.borderWidth = 1
@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        enterTapped(UIButton())
+        enterTapped(textField)
         return true
     }
 }
