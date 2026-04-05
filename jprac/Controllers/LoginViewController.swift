@@ -3,14 +3,10 @@ import UIKit
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var enterButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
-        enterButton.backgroundColor = .systemPurple
-        enterButton.setTitleColor(.white, for: .normal)
-        enterButton.layer.cornerRadius = 12
         nameTextField.delegate = self
     }
 
@@ -47,7 +43,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        enterTapped(enterButton)
+        enterTapped(UIButton())
         return true
     }
 }

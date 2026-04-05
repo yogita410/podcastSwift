@@ -85,7 +85,6 @@
                     <navigationItem key="navigationItem" id="login-navitem-id"/>
                     <connections>
                         <outlet property="nameTextField" destination="login-tf-id" id="outlet-login-tf"/>
-                        <outlet property="enterButton" destination="login-btn-id" id="outlet-login-btn"/>
                         <segue destination="genre-vc-id" kind="show" identifier="LoginToGenre" id="segue-login-genre"/>
                     </connections>
                 </viewController>
